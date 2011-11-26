@@ -38,10 +38,13 @@ public class FoursquareErrorHandler extends DefaultResponseErrorHandler {
 	public boolean hasError(ClientHttpResponse response) throws IOException {
 		if(super.hasError(response)) {
 			return true;
+		} else {
+			return false;
 		}
+		//todo: ensure we are verifying errors effectively
 		// only bother checking the body for errors if we get past the default error check
-		String content = readFully(response.getBody());		
-		return content.contains("\"errorType\":") || content.equals("false");
+		// String content = readFully(response.getBody());		
+		// return content.contains("\"errorType\":") || content.equals("false");
 	}
 	
 	@SuppressWarnings("unchecked")
